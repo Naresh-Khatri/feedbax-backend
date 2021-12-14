@@ -4,7 +4,7 @@ import Profile from '../models/Profile.js';
 const router = express.Router();
 // router.use(express.json());
 
-router.get('/all', (req, res) => {
+router.get('/', (req, res) => {
     Profile.find({}, (err, profiles) => {
         if (err) {
             res.status(500).send(err);

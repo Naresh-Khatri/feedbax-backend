@@ -17,7 +17,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS")
     res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
     next()
-})
+  })
 //custom logging morgan middleware goodness
 app.use(
     morgan(function (tokens, req, res) {
@@ -43,7 +43,7 @@ app.use(
             chalk.bgRedBright("📱" + deviceInfo),
             chalk.bgMagentaBright("🔗" + tokens.url(req, res)),
             chalk.bgBlueBright(tokens.referrer(req, res) ==
-                'https://naresh-khatri.github.io/JNTUA-result-analyser-spa/' ?
+                'https://naresh-khatri.github.io/' ?
                 "🧾 " + "Homepage" : "🧾 " + tokens.referrer(req, res)),
             chalk.bgCyan("📦" + tokens.res(req, res, 'content-length')),
             "⚡ " +
