@@ -13,6 +13,16 @@ router.get('/', (req, res) => {
         }
     })
 });
+router.get('/getPres/:id', (req, res) => {
+    Profile.findById(req.params.id, (err, profile) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            // console.log(profile.presenters);
+            res.status(200).send(profile);
+        }
+    })
+})
 router.post('/sendFeedback', (req, res) => {
     // const { name, email, title, feedback } = req.body;
     const { id } = req.body;
@@ -26,10 +36,11 @@ router.post('/sendFeedback', (req, res) => {
             profile.feedbacks.push(feedback);
             profile.save((err, profile) => {
                 if (err) {
+                    console.log('while saving feedback', err);
                     res.status(500).send(err);
                 } else {
                     console.log(profile)
-                    res.send({msg: "Feedback sent successfully"});
+                    res.send({ msg: "Feedback sent successfully" });
                 }
             })
         }

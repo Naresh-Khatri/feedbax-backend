@@ -5,14 +5,7 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: false,
-    },
-    title: {
-        type: String,
-        required: true
-    },
+    presenters:[],
     feedbacks: []
 })
 
